@@ -3,10 +3,8 @@ import { router } from "./routers";
 
 function App() {
 	return (
-		<div className="App bg-gray-50">
-			<div className="container mx-auto p-12">
-				<RouterProvider router={router} />
-			</div>
+		<div className="bg-[#0F0F0F] text-white ">
+			<RouterProvider router={router} />
 		</div>
 	);
 }
