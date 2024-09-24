@@ -4,6 +4,7 @@ import Header from "@/components/molecules/Header";
 import { useEducations } from "@/hooks/useEducations";
 import { formatMonthYear } from "@/utils/DateUtils";
 import { useExperiences } from "@/hooks/useExperiences";
+import { Loader2 } from "lucide-react";
 
 function AboutPage() {
 	const { data: educations, isLoading: isLoadingEducations } = useEducations();
@@ -29,7 +30,9 @@ function AboutPage() {
 			<section className="mb-8">
 				<h2 className="text-xl font-semibold mb-4">Education</h2>
 				{isLoadingEducations ? (
-					<p>Loading education data...</p>
+					<div className="flex items-center justify-center text-white">
+						<Loader2 className="h-6 w-6 animate-spin" />
+					</div>
 				) : (
 					<ul className="text-white/80 space-y-4">
 						{educations?.map((education) => (
@@ -56,7 +59,9 @@ function AboutPage() {
 			<section className="mb-8">
 				<h2 className="text-xl font-semibold mb-4">Experience</h2>
 				{isLoadingExperiences ? (
-					<p>Loading experience data...</p>
+					<div className="flex items-center justify-center text-white">
+						<Loader2 className="h-6 w-6 animate-spin" />
+					</div>
 				) : (
 					<ul className="text-white/80 space-y-4">
 						{experiences?.map((experiences) => (
