@@ -20,7 +20,7 @@ function ProjectPage() {
 	const filteredProjects =
 		activeTab === "All"
 			? projects
-			: projects?.filter((project) => project.category === activeTab);
+			: projects?.filter((project) => project.category.includes(activeTab));
 
 	return (
 		<div className="min-h-screen space-y-6">
