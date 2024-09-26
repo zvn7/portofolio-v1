@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/molecules/Header";
 import Tabs from "@/components/molecules/Tabs";
-import { FolderCode, Globe, Loader2 } from "lucide-react";
+import { FolderCode, Globe } from "lucide-react";
 import {
 	Card,
 	CardContent,
@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useProjects } from "@/hooks/useProjects";
 import StackIcon from "tech-stack-icons";
+import { SkeletonCard } from "@/components/molecules/SkeletonCard";
 
 function ProjectPage() {
 	const [activeTab, setActiveTab] = useState("All");
@@ -33,17 +34,15 @@ function ProjectPage() {
 			/>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-				{filteredProjects?.map((project) => (
-					<Card
-						className="p-4 space-y-4 bg-neutral-800 shadow-lg border-none text-white"
-						key={project.id}
-					>
-						{isLoadingProjects ? (
-							<div className="flex items-center justify-center text-white">
-								<Loader2 className="h-6 w-6 animate-spin" />
-							</div>
-						) : (
-							<>
+				{isLoadingProjects
+					? Array.from({ length: 4 }).map((_, idx) => (
+							<SkeletonCard key={idx} />
+					  ))
+					: filteredProjects?.map((project) => (
+							<Card
+								className="p-4 space-y-4 bg-neutral-800 shadow-lg border-none text-white"
+								key={project.id}
+							>
 								<img
 									src={project.image}
 									className="rounded-xl"
@@ -60,28 +59,26 @@ function ProjectPage() {
 										))}
 									</div>
 								</CardContent>
-							</>
-						)}
-						<CardFooter className="flex gap-2">
-							{project.url && (
-								<Button
-									className="w-full space-x-2"
-									onClick={() => window.open(project.url, "_blank")}
-								>
-									<Globe className="h-4 w-4" /> <span>Preview</span>
-								</Button>
-							)}
-							{project.repository && (
-								<Button
-									className="w-full space-x-2"
-									onClick={() => window.open(project.repository, "_blank")}
-								>
-									<FolderCode className="h-4 w-4" /> <span>Repo</span>
-								</Button>
-							)}
-						</CardFooter>
-					</Card>
-				))}
+								<CardFooter className="flex gap-2">
+									{project.url && (
+										<Button
+											className="w-full space-x-2"
+											onClick={() => window.open(project.url, "_blank")}
+										>
+											<Globe className="h-4 w-4" /> <span>Preview</span>
+										</Button>
+									)}
+									{project.repository && (
+										<Button
+											className="w-full space-x-2"
+											onClick={() => window.open(project.repository, "_blank")}
+										>
+											<FolderCode className="h-4 w-4" /> <span>Repo</span>
+										</Button>
+									)}
+								</CardFooter>
+							</Card>
+					  ))}
 			</div>
 		</div>
 	);
