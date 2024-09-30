@@ -24,14 +24,16 @@ function ProjectPage() {
 			: projects?.filter((project) => project.category.includes(activeTab));
 
 	return (
-		<div className="min-h-screen space-y-6">
-			<Header title="My Projects" backLink="/" />
+		<div className="space-y-6">
+			<div className="space-y-4">
+				<Header title="My Projects" backLink="/" />
 
-			<Tabs
-				activeTab={activeTab}
-				setActiveTab={setActiveTab}
-				tabs={["All", "Website", "Application", "API", "UI/UX"]}
-			/>
+				<Tabs
+					activeTab={activeTab}
+					setActiveTab={setActiveTab}
+					tabs={["All", "Website", "Application", "API", "UI/UX"]}
+				/>
+			</div>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 				{isLoadingProjects

@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 import Header from "@/components/molecules/Header";
 import { useEducations } from "@/hooks/useEducations";
 import { formatMonthYear } from "@/utils/DateUtils";
@@ -89,7 +89,7 @@ function AboutPage() {
 				<h2 className="text-xl font-semibold mb-4">Connect with Me</h2>
 				<div className="flex space-x-4">
 					<a
-						href="https://linkedin.com/in/ilham-maulana"
+						href="https://linkedin.com/in/ilham-maul"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-white/80 hover:text-white transition"
@@ -97,7 +97,7 @@ function AboutPage() {
 						<FaLinkedin className="h-6 w-6" />
 					</a>
 					<a
-						href="https://github.com/ilham-maulana"
+						href="https://github.com/zvn7"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-white/80 hover:text-white transition"
@@ -105,12 +105,12 @@ function AboutPage() {
 						<FaGithub className="h-6 w-6" />
 					</a>
 					<a
-						href="https://twitter.com/ilham-maulana"
+						href="https://instagram.com/ilhammaul7"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-white/80 hover:text-white transition"
 					>
-						<FaTwitter className="h-6 w-6" />
+						<FaInstagram className="h-6 w-6" />
 					</a>
 				</div>
 			</section>

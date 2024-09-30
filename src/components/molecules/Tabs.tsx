@@ -2,12 +2,13 @@ interface TabsProps {
 	activeTab: string;
 	setActiveTab: (tab: string) => void;
 	tabs: string[];
+	className?: string;
 }
 
-const Tabs = ({ activeTab, setActiveTab, tabs }: TabsProps) => {
+const Tabs = ({ activeTab, setActiveTab, tabs, className }: TabsProps) => {
 	return (
-		<div className="flex flex-wrap items-center justify-center">
-			<div className="flex overflow-x-auto overflow-y-hidden  whitespace-nowrap dark:border-gray-700">
+		<div className={`flex flex-wrap items-center justify-center ${className}`}>
+			<div className="flex overflow-x-auto overflow-y-hidden whitespace-nowrap dark:border-gray-700">
 				{tabs.map((tab) => (
 					<button
 						key={tab}
